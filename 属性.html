@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.mydiv{
+			width: 300px;
+			height: 100px;
+			background-color: #ff7400;
+			color: #fff;
+			font-size:20px;
+		}
+	</style>
+</head>
+<body>
+	<ul></ul>
+	<div id="dd"></div>
+	<button id="btn">Button</button>
+	<input type="text" id="username">
+<!-- 既然是用jQuery，就要先引入外部jquery文件 。然后再写自己的script-->
+	<script src="js/jquery-1.10.1.min.js"></script>
+	
+	<script>
+	
+	
+	
+//attr	
+		//首先div这个标签是没有mydiv这个class属性的
+		$(function(){
+			$("#btn").click(function(){
+			//传进去两个值，一个是属性的名字，一个是属性的值，这样
+			//就给这个div创建了class的值，然后上面的mydiv就有了效果
+			//在js中的方法是var div = document.getElementById("dd");
+			//               div.setAttribute("class","mydiv");
+				$("#dd").attr("class","mydiv");
+				$("#dd").attr("ref","xxx");
+			});
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//上面的方法要获取两次元素，运行慢
+		
+		
+			$(function(){
+			//只获取一次该元素
+			//在里面还是可以使用原生的元素的，但是用原生的就不能使用attr等之类的属性 ，
+			//这样我们就不知道我们使用的div是通过jquery还是通过原生js获取的元素
+			//所以在使用jquery获得的元素是前面加上$区分
+			var $div = $("#dd");
+			
+			
+			$("#btn").click(function(){
+			//传进去两个值，一个是属性的名字，一个是属性的值，这样
+			//就给这个div创建了class的值，然后上面的mydiv就有了效果
+			//在js中的方法是var div = document.getElementById("dd");
+			//               div.setAttribute("class","mydiv");
+				$div.attr("class","mydiv");
+				$div.attr("ref","xxx");
+				
+				
+			//方法2
+				$div.attr("class","mydiv").attr("ref","100");
+				
+			//方法3。。。用对象的方式
+				$div.attr({
+				"class":"mydiv",
+				"ref":"123"
+				});
+				
+				
+			});
+		});
+		
+		
+		
+		
+		
+		
+		
+		$(function(){
+			//只获取一次该元素
+			//在里面还是可以使用原生的元素的，但是用原生的就不能使用attr等之类的属性 ，
+			//这样我们就不知道我们使用的div是通过jquery还是通过原生js获取的元素
+			//所以在使用jquery获得的元素是前面加上$区分
+			var $div = $("#dd");
+			
+			$("#btn").click(function(){
+			//attr中只有一个参数的时候是用来获取属性值的
+				var className = $div.attr("class");
+				var refValue = $div.attr("ref");
+				console.log(className + " : " + refValue);
+				
+				
+			});
+		});
+		
+
+	
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		$(function(){
+			
+			var $div = $("#dd");
+			
+			$("#btn").click(function(){
+			
+				$div.removeClass("mydiv");//删除这个class。也只能删除class
+				
+				$div.addClass("mydiv");//添加class值，也只能添加class，如果本来就有一个class值，追加一个class值
+				
+				$div.removeAttr("class");//删除这个class
+			
+			});
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+//toggleClass	
+//toggle切换 开关	
+		
+		
+		$(function(){
+			
+			var $div = $("#dd");
+			
+			$("#btn").click(function(){
+			//如果div中有mydiv的话就执行删除，如果没有的话就添加
+				$div.toggleClass("mydiv");
+				
+				
+			//	if($div.attr("class")) {
+			//		$div.removeClass("mydiv");
+			//	} else {
+			//		$div.addClass("mydiv");
+			//	}
+			});
+		});
+		
+
+			
+		
+		
+		
+		
+	
+
+
+
+
+
+		$(function(){
+			
+			var $div = $("#dd");
+			
+			$("#btn").click(function(){
+			
+				//添加内容
+				//在js中用的是innerText
+				$div.text("Hello,jQuery");
+				
+				//不传参就是获取值
+				var msg = $div.text();
+				console.log(msg);
+				
+				
+				//会增加这个标签
+				//在js中用的是innerhtml
+				$div.html("<h3>Hello</h3>");
+				//不会增加标签，内容是<h3>Hello</h3>
+				$div.text("<h3>Hello</h3>");
+				
+				
+				//如果ul里已经有了这些就会发生替换
+				$("ul").html('<li><a href="#">Haha</a></li>');
+			});
+		});
+		
+
+			
+		
+		
+
+
+
+
+
+
+//val
+
+		$(function(){
+			
+			var $div = $("#dd");
+			
+			$("#btn").click(function(){
+				//获取输入的值
+				var name = $("#username").val();
+				console.log(name);
+				
+				
+				
+				//赋值
+				$("#username").val("Jack");
+			});
+		});
+		
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+		
+		
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
